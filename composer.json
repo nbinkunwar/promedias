@@ -2,9 +2,7 @@
     "name": "professor-opps/promedias",
     "description": "Media and Attachment Manager",
     "type": "library",
-    "require-dev": {
-        "no": "no"
-    },
+    "require-dev": {},
     "license": "mit",
     "authors": [
         {
