@@ -10,7 +10,6 @@
             "email": "nbinkunwar@gmail.com"
         }
     ],
-    "minimum-stability":"stable",
     "extra": {
         "laravel": {
             "providers": [
