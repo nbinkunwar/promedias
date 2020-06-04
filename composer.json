@@ -14,7 +14,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "professor-oops\\promedias\\PromediaServiceProvider"
+                "ProfessorOops\\Promedias\\PromediaServiceProvider"
             ]
         }
     },
