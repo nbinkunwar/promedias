@@ -26,5 +26,7 @@
     }
 },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "league/glide-laravel": "dev-master"
+    }
 }

@@ -12,7 +12,7 @@ use League\Glide\ServerFactory;
 use ProfessorOops\Promedias\Facade\Attachments;
 use ProfessorOops\Promedias\MediaJobs;
 use ProfessorOops\Promedias\Resources\MediaResource;
-use ProfessorOops\Support\Traits\ApiResponse;
+// use ProfessorOops\Support\Traits\ApiResponse;
 
 /**
  * @group Media Management
@@ -22,7 +22,7 @@ use ProfessorOops\Support\Traits\ApiResponse;
 class MediaController extends Controller
 {
 
-    use ApiResponse;
+    // use ApiResponse;
 
     /**
      * @bodyParam image image required
@@ -38,9 +38,9 @@ class MediaController extends Controller
         if($request->hasFile('image')){
             $media = new MediaJobs($request->file('image'));
             $uploaded = $media->upload();
-            return $this->respondSuccess(new MediaResource($uploaded));
+            // return $this->respondSuccess(new MediaResource($uploaded));
         }
-        return $this->respondError(['image'=>'image field is required']);
+        // return $this->respondError(['image'=>'image field is required']);
 
     }
 
