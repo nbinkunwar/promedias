@@ -63,18 +63,23 @@ class MediaController extends Controller
             'cache_path_prefix' => '.cache',
 //            'base_url' => 'img',
         ]);
-//        try{
-//            ImageOptimizer::optimize(storage_path('../public/uploads/original/'.$path));
-//        }catch (\Exception $e)
-//        {
-////            print_r($e->getMessage());
-//            //handle exception
-//        }
+        $path = $server->makeImage($path,$request->all());
+//        echo $path;exit;
+        try{
+            // ImageOptimizer::optimize(storage_path('app/'.$path));
+        }catch (\Exception $e)
+        {
+//            print_r($e->getMessage());exit;
+            //handle exception
+        }
 
-//        $base64 = $server->getImageAsBase64($path,$request->all());
-//        return $base64;
-        $response = $server->getImageResponse($path, $request->all());
-        return $response;
+
+
+        $cache = $server->getCache();
+//        print_r($cache);exit;
+//        print_r($image);exit;
+//        $response = $server->getImageResponse($path, request()->all());
+        return $server->getResponseFactory()->create($cache, $path);
     }
 
 }
