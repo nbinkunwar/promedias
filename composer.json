@@ -10,6 +10,11 @@
             "email": "nbinkunwar@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "ProfessorOops\\Promedias\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -17,14 +22,6 @@
             ]
         }
     },
-    "autoload": {
-    "classmap": [
-
-    ],
-    "psr-4": {
-        "Professor\\Promedias\\": "src/"
-    }
-},
     "minimum-stability": "dev",
     "require": {
         "league/glide-laravel": "dev-master"
