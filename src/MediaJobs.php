@@ -15,11 +15,12 @@ class MediaJobs{
     private $file;
     private $width;
     private $height;
-    public function __construct($file,$width = '', $height = '')
+    public function __construct($file,$slug= 'default',$width = '', $height = '')
     {
         $this->file = $file;
         $this->width = $width;
         $this->height = $height;
+        $this->slug  = $slug;
     }
 
     public static function validationRules()
@@ -43,8 +44,8 @@ class MediaJobs{
         }
         $original_name = $image->getClientOriginalName();
         $imageName = time().'.'.str_replace(' ','-',$original_name);
-        $destinationPath = storage_path().'/uploads/original';
-        $resizedPath = storage_path().'/uploads/resized/'.$imageName;
+        $destinationPath = storage_path('app/public').'/'.$this->slug;
+        $resizedPath = storage_path('app/public').'/'.$this->slug;
         if(!file_exists($destinationPath))
         {
             mkdir($destinationPath,0755,true);
@@ -58,10 +59,11 @@ class MediaJobs{
         {
             Image::make($image->getRealPath())->fit($this->width,$this->height)->save($resizedPath);
         }
+        $imagePath = $this->slug.'/'.$imageName;
         if($image->move($destinationPath, $imageName))
         {
             $media = new Media();
-            $media->fill(['file_name'=>$imageName,'original_name'=>$original_name])->save();
+            $media->fill(['file_name'=>$imagePath,'original_name'=>$original_name])->save();
             return $media;
 //            return $attachment->fillAndSave(['media_id'=>$result->id,'attachable_id'=>null,'attachable_type'=>null]);
         }

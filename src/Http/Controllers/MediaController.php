@@ -57,10 +57,11 @@ class MediaController extends Controller
     {
         $server = ServerFactory::create([
             'response' => new LaravelResponseFactory(app('request')),
-            'source' => $filesystem->getDriver(),
+            'source' => storage_path('app/public'),
+//            'source' => public_path().'/uploads/original',
             'cache' => $filesystem->getDriver(),
             'cache_path_prefix' => '.cache',
-            'base_url' => 'img',
+//            'base_url' => 'img',
         ]);
 //        try{
 //            ImageOptimizer::optimize(storage_path('../public/uploads/original/'.$path));
