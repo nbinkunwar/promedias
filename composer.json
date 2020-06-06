@@ -14,14 +14,7 @@
         "psr-4": {
             "ProfessorOops\\Promedias\\": "src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                // "ProfessorOops\\Promedias\\PromediaServiceProvider"
-            ]
-        }
-    },
+    },   
     "minimum-stability": "dev",
     "require": {
         "league/glide-laravel": "dev-master"
